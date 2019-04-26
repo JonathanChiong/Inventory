@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from Ticketing.models import *
 from Ticketing.forms import *
 import datetime
+from django.views import View
 from django.views.generic import (
     ListView,
     DetailView,
@@ -30,12 +31,13 @@ from django.views.generic import (
 # class Home(LoginRequiredMixin,TemplateView):
 #     template_name = 'home/home.html'
 #
-# #Employee > Status--------------------------------------------------------------
-# class EmployeeStat(LoginRequiredMixin,ListView):
-#     model = r_empstat
-#     context_object_name = 'emp_stat'
-#     template_name = 'references/status/list.html'
-#
+#Employee > Status--------------------------------------------------------------
+class Ticketing(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request,'Ticketing/ticketing.html',context=None)
+
+
 # class EmployeeStatDetail(LoginRequiredMixin,DetailView):
 #     model = r_empstat
 #     template_name = 'references/status/detail.html'

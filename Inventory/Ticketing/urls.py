@@ -3,9 +3,9 @@ from . import views
 from .views import *
 
 
-#
-# urlpatterns = [
-#     path('', Home.as_view(), name='home'),
+
+urlpatterns = [
+    path('', Ticketing.as_view(), name='Ticketing'),
 # # Employee > Status
 #     path('employee/status/list/', EmployeeStat.as_view(),
 #     name='employeeStat'),
@@ -17,4 +17,4 @@ from .views import *
 #     name='employeeStatusCreate'),
 #     path('employee/status/update/<int:pk>/', EmployeeStatUpdate.as_view(),
 #     name='employeeStatUpdate'),
-# ]
+]
