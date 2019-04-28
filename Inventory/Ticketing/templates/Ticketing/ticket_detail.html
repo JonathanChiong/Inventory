@@ -1,0 +1,228 @@
+{% extends 'Ticketing/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<div class="container">
+  <div id='ticketdetail' class="container">
+
+    <div id='ticketupperdiv'>
+
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+          <strong>Computer ID No. :</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.id_comp}}
+        </div>
+        <div class="col-3">
+          <strong>Supplier Name :</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.nm_supp}}
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+          <strong>Department :</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.nm_dept}}
+        </div>
+        <div class="col-3">
+          <strong>OR Number :</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.or_no}}
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+          <strong>Location :</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.nm_loc}}
+        </div>
+        <div class="col-3">
+        </div>
+        <div class="col-2">
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+          <strong>Date Requested :</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.date_req}}
+        </div>
+        <div class="col-3">
+          <strong>Date Purchased</strong>
+        </div>
+        <div class="col-2">
+          {{ticket.transac.date_pur}}
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+
+
+    </div>
+
+    <div id='ticketlowerdiv'>
+      <div id='tablehead' class="row">
+
+        <div style='width:10%;'>
+          <strong>Component</strong>
+        </div>
+        <div style='width:10%;'>
+          <strong>Brand</strong>
+        </div>
+        <div style='width:10%;'>
+          <strong>Model</strong>
+        </div>
+        <div style='width:15%;'>
+          <strong>Specs</strong>
+        </div>
+        <div style='width:10%;'>
+          <strong>Serial#</strong>
+        </div>
+        <div style='width:15%;'>
+          <strong>Status</strong>
+        </div>
+        <div style='width:15%;'>
+          <strong>Transaction</strong>
+        </div>
+        <div style='width:15%;'>
+          <strong>Warranty</strong>
+        </div>
+
+      </div>
+
+      <form method="post">
+      {% csrf_token %}
+
+      {% if ticket.transac.mb_brand != None  %}
+      <div id='tablerow' class="row">
+        <div style='width:10%;'>
+          <p><strong>Motherboard</strong></p>
+        </div>
+        <div  style='width:10%;'>
+          <p><strong>{{ticket.transac.mb_brand}}</strong></p>
+        </div>
+        <div style='width:10%;'>
+          <p><strong>{{ticket.transac.mb_mod}}</strong></p>
+
+        </div>
+        <div style='width:15%;'>
+          <p><strong>{{ticket.transac.mb_specs}}</strong></p>
+        </div>
+        <div style='width:10%;'>
+          <p><strong>{{ticket.transac.mb_sr}}</strong></p>
+        </div>
+        <div style='width:15%;'>
+          {{form.mb_stat}}
+        </div>
+        <div style='width:15%;'>
+          {{form.mb_tran}}
+        </div>
+        <div style='width:15%;'>
+          {{form.mb_war}}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if ticket.transac.pr_brand != None  %}
+      <div id='tablerow' class="row">
+        <div style='width:10%;'>
+          <p><strong>Processors</strong></p>
+        </div>
+        <div  style='width:10%;'>
+          <p><strong>{{ticket.transac.pr_brand}}</strong></p>
+        </div>
+        <div style='width:10%;'>
+          <p><strong>{{ticket.transac.pr_mod}}</strong></p>
+
+        </div>
+        <div style='width:15%;'>
+          <p><strong>{{ticket.transac.pr_specs}}</strong></p>
+        </div>
+        <div style='width:10%;'>
+          <p><strong>{{ticket.transac.pr_sr}}</strong></p>
+        </div>
+        <div style='width:15%;'>
+          {{form.pr_stat}}
+        </div>
+        <div style='width:15%;'>
+          {{form.pr_tran}}
+        </div>
+        <div style='width:15%;'>
+          {{form.pr_war}}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if ticket.transac.mm_brand != None  %}
+      <div id='tablerow' class="row">
+        <div style='width:10%;'>
+          <p><strong>Memory</strong></p>
+        </div>
+        <div  style='width:10%;'>
+          <p><strong>{{ticket.transac.mm_brand}}</strong></p>
+        </div>
+        <div style='width:10%;'>
+          <p><strong>{{ticket.transac.mm_mod}}</strong></p>
+
+        </div>
+        <div style='width:15%;'>
+          <p><strong>{{ticket.transac.mm_specs}}</strong></p>
+        </div>
+        <div style='width:10%;'>
+          <p><strong>{{ticket.transac.mm_sr}}</strong></p>
+        </div>
+        <div style='width:15%;'>
+          {{form.mm_stat}}
+        </div>
+        <div style='width:15%;'>
+          {{form.mm_tran}}
+        </div>
+        <div style='width:15%;'>
+          {{form.mm_war}}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+    <hr>
+    <a class="btn btn-secondary" href="{% url 'TicketHome' %}">Back</a>
+    <button class="btn btn-info" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}
+
+
+
+  {% block js  %}
+  {% endblock %}

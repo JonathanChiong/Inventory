@@ -17,42 +17,19 @@ from django.views.generic import (
     FormView
 )
 
-# """
-#     Set restriction based on user based on parameter.
-#     from django.contrib.auth.mixins import UserPassesTestMixin
-#
-# class VIEW_NAME(UserPassesTestMixin,View)
-#     def test_func(self):
-#         return self.request.user.userprofile.department == 'HR'
-#     allow users if test_func return TRUE / create a list of dept if multiple
-#     dept can access ALLOWED_USERS = ['HR','TRAINEE']
-#
-# """
-# class Home(LoginRequiredMixin,TemplateView):
-#     template_name = 'home/home.html'
-#
-#Employee > Status--------------------------------------------------------------
-class Ticketing(View):
-
-    def get(self, request, *args, **kwargs):
-        return render(request,'Ticketing/ticketing.html',context=None)
+class Ticketing(CreateView):
+    form_class = TransactionForm
+    model = Transaction
+    template_name = 'Ticketing/ticketing.html'
 
 
-# class EmployeeStatDetail(LoginRequiredMixin,DetailView):
-#     model = r_empstat
-#     template_name = 'references/status/detail.html'
-#
-# class EmployeeStatCreate(LoginRequiredMixin,CreateView):
-#     model = r_empstat
-#     template_name = 'references/status/create.html'
-#     fields = ['cd_empstat','nm_empstat']
-#
-# class EmployeeStatUpdate(LoginRequiredMixin,UpdateView):
-#     model = r_empstat
-#     template_name = 'references/status/create.html'
-#     fields = ['cd_empstat','nm_empstat']
-#
-# class EmployeeStatDelete(LoginRequiredMixin,DeleteView):
-#     model = r_empstat
-#     template_name = 'references/status/delete.html'
-#     success_url = '/employee/status/list/'
+    def get_context_data(self,**kwargs):
+        context = super(Ticketing,self).get_context_data(**kwargs)
+        context['tickets'] = Ticket.objects.all()
+        return context
+
+class TicketDetail(UpdateView):
+    form_class= TicketForm
+    model = Ticket
+    template_name = 'Ticketing/ticket_detail.html'
+    context_object_name= 'ticket'

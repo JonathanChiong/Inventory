@@ -2,6 +2,7 @@
   background: rgba(233,236,239, 0.7);
   padding-bottom: 2%;
   margin-top: 50px;
+  min-width: 800px;
 }
 
 #jumbolinks {
@@ -14,8 +15,96 @@
   padding-bottom: 20px;
   padding-top: 20px;
   border-radius:5px;
+  min-width: 800px;
+  margin-bottom: 50px;
+}
+#createform div {
+  margin-bottom: 3px;
 }
 
-#createalert {
-  margin-top: 5px;
+#perticket {
+  height: 2rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(230, 228, 228, 0.8);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: -4px 4px 19px -8px rgba(0,0,0,0.31);
+  -moz-box-shadow: -4px 4px 19px -8px rgba(0,0,0,0.31);
+  box-shadow: -4px 4px 19px -8px rgba(0,0,0,0.31);
+  align-items: center; /* align vertical */
+  color:black;
+  text-decoration: none;
+  background-color: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+#displaytran {
+  display: none;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  background: rgba(233,236,239, 0.7);
+  padding-bottom: 50px;
+  padding-top: 20px;
+  border-radius:5px;
+  min-width: 800px;
+
+}
+#ticketdetail {
+  background: rgba(230, 228, 228, 0.8);
+}
+#tablehead {
+  height: 2rem;
+  padding-top: 3px;
+  background: rgba(208, 202, 193, 0.8);
+  border-radius:5px;
+  border: 1px solid black;
+  overflow: hidden;
+  text-align: center;
+
+}
+#tablerow {
+  background: rgba(214, 214, 214, 0.8);
+  border-radius:5px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+  height: 50px;
+  overflow: hidden;
+  padding-top: 5px;
+
+}
+#tablerow p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+
+}
+
+
+
+#ticketdetail {
+  margin-top: 50px;
+  background: rgba(233,236,239, 0.7);
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-radius:5px;
+  min-width: 800px;
+}
+
+#ticketupperdiv {
+  background: rgba(208, 202, 193, 0.8);
+  border-radius:5px;
+  border: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#ticketlowerdiv {
+  margin-top: 20px;
 }

@@ -5,16 +5,7 @@ from .views import *
 
 
 urlpatterns = [
-    path('', Ticketing.as_view(), name='Ticketing'),
-# # Employee > Status
-#     path('employee/status/list/', EmployeeStat.as_view(),
-#     name='employeeStat'),
-#     path('employee/status/detail/<int:pk>/', EmployeeStatDetail.as_view(),
-#     name='employeeStatDetail'),
-#     path('employee/status/delete/<int:pk>/', EmployeeStatDelete.as_view(),
-#     name='employeeStatDelete'),
-#     path('employee/status/create/', EmployeeStatCreate.as_view(),
-#     name='employeeStatusCreate'),
-#     path('employee/status/update/<int:pk>/', EmployeeStatUpdate.as_view(),
-#     name='employeeStatUpdate'),
+    path('', Ticketing.as_view(), name='TicketHome'),
+    path('detail/<int:pk>/', TicketDetail.as_view(), name='TicketDetail'),
+
 ]

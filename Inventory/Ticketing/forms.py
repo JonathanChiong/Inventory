@@ -4,36 +4,135 @@ from django.contrib.admin.widgets import AdminDateWidget
 from .models import *
 from crispy_forms.helper import FormHelper
 
-DT_PAY = (
-    ('011',('011')),
-    ('021',('021')),
-    ('031',('031')),
-    ('041',('041')),
-    ('051',('051')),
-    ('061',('061')),
-    ('071',('071')),
-    ('081',('081')),
-    ('091',('091')),
-    ('101',('101')),
-    ('111',('111')),
-    ('121',('121')),
-    ('13M',('13M')),
-)
-#
-# class compute_payroll(forms.Form):
-#     dt_period = forms.ChoiceField(choices=DT_PAY,required=True,label='')
-#
-#     def clean(self):
-#         from Home.models import t_pay
-#         cleaned_data = super(compute_payroll, self).clean()
-#         dtpay_select = cleaned_data.get('dt_period')
-#
-#         payroll = t_pay.objects.all().values('dtpay')
-#         pay_list = []
-#         for i in payroll:
-#             pay_list.append(i['dtpay'])
-#
-#         if dtpay_select in pay_list:
-#             raise forms.ValidationError('This payroll is already generated')
-#
-#         return self.cleaned_data
+class TransactionForm(forms.ModelForm):
+    class Meta:
+        model = Transaction
+        fields = [
+            'id_comp','nm_dept','nm_loc','nm_supp',
+            'or_no','date_req','date_pur','mb_brand',
+            'mb_mod','mb_specs','mb_sr','pr_brand',
+            'pr_mod','pr_specs','pr_sr','mm_brand',
+            'mm_mod','mm_specs','mm_sr',
+        ]
+        widgets = {
+            'id_comp': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'nm_dept': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'nm_loc': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'nm_supp': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'or_no': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'date_req': forms.DateInput(attrs={
+            'type': 'date'
+            }),
+            'date_pur': forms.DateInput(attrs={
+            'type': 'date',
+            }),
+# ------------------------------
+            'mb_brand': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'mb_mod': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'mb_specs': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'mb_sr': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+# ------------------------------
+            'pr_brand': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'pr_mod': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'pr_specs': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'pr_sr': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+# ------------------------------
+            'mm_brand': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'mm_mod': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'mm_specs': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'mm_sr': forms.TextInput(attrs={
+            'class': 'form-control'
+            }),
+            }
+
+    def clean(self):
+        from Ticketing.models import Ticket,Transaction
+        cleaned_data = super(TransactionForm, self).clean()
+        """ Get the computer ID to use as foreinkey in Ticket """
+        computerid = cleaned_data.get('id_comp')
+
+        newticket = Ticket(transac=Transaction(id_comp=computerid))
+        newticket.save()
+
+        return self.cleaned_data
+
+class TicketForm(forms.ModelForm):
+    class Meta:
+        model = Ticket
+        fields = [
+                'mb_stat',
+                'pr_stat',
+                'mm_stat',
+                'mb_tran',
+                'pr_tran',
+                'mm_tran',
+                'mb_war',
+                'pr_war',
+                'mm_war',
+        ]
+
+        widgets = {
+            'mb_stat': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'mb_tran': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'mb_war': forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'MM-DD-YY'
+            }),
+            'pr_stat': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'pr_tran': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'pr_war': forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'MM-DD-YY'
+            }),
+            'mm_stat': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'mm_tran': forms.Select(attrs={
+            'class': 'form-control'
+            }),
+            'mm_war': forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'MM-DD-YY'
+            }),
+
+            }
