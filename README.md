@@ -7,5 +7,5 @@ Modify/Assign item status in transaction details.
 Roadmap:
 Delete an entry.
 Sorting in view all transactions.
-Generate Reports.
-Login/Logout.
+Generate Reports. \n
+Login/Logout. \n
