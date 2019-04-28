@@ -22,10 +22,16 @@ class Ticketing(CreateView):
     model = Transaction
     template_name = 'Ticketing/ticketing.html'
 
+    def form_valid(self, form):
+        from Ticketing.models import Ticket
+        transac = form.save()
+        newticket = Ticket(transac=transac)
+        newticket.save()
+        return redirect('TicketHome')
 
     def get_context_data(self,**kwargs):
         context = super(Ticketing,self).get_context_data(**kwargs)
-        context['tickets'] = Ticket.objects.all()
+        context['tickets'] = Ticket.objects.all().order_by('-id')
         return context
 
 class TicketDetail(UpdateView):

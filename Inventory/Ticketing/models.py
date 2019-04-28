@@ -96,8 +96,6 @@ class Transaction(models.Model):
     mm_specs = models.CharField(max_length=50,null=True,blank=True)
     mm_sr = models.CharField(max_length=50,null=True,blank=True)
 
-    def get_absolute_url(self):
-        return reverse('TicketHome')
 
     def __str__(self):
         return self.id_comp

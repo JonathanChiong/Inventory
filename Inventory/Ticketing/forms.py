@@ -77,16 +77,6 @@ class TransactionForm(forms.ModelForm):
             }),
             }
 
-    def clean(self):
-        from Ticketing.models import Ticket,Transaction
-        cleaned_data = super(TransactionForm, self).clean()
-        """ Get the computer ID to use as foreinkey in Ticket """
-        computerid = cleaned_data.get('id_comp')
-
-        newticket = Ticket(transac=Transaction(id_comp=computerid))
-        newticket.save()
-
-        return self.cleaned_data
 
 class TicketForm(forms.ModelForm):
     class Meta:
