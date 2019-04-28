@@ -1,0 +1,16 @@
+--upgrade django-crispy-forms
+defusedxml==0.5.0
+diff-match-patch==20181111
+django-import-export==1.2.0
+django==2.1.7
+et-xmlfile==1.0.1
+jdcal==1.4
+odfpy==1.4.0
+openpyxl==2.6.0
+pytz==2018.9
+pyyaml==3.13
+tablib==0.12.1
+unicodecsv==0.14.1
+xlrd==1.2.0
+xlwt==1.3.0
+psycopg2
