@@ -5,7 +5,7 @@ Add item in inventory, system auto create a ticket/tracker for that item.
 Modify/Assign item status in transaction details.
 
 Roadmap:
-Delete an entry.
-Sorting in view all transactions.
-Generate Reports. \n
-Login/Logout. \n
+-Delete an entry.
+-Sorting in view all transactions.
+-Generate Reports.
+-Login/Logout. 
