@@ -2,12 +2,13 @@
 /* migrate fields width from ticket detail to main.css*/
 /* migrate fields width from ticket detail to main.css*/
 
-#id_mb_war{
+#id_mb_war,#id_pr_war,#id_mm_war{
   height: 80%;
   width:100%;
   border-radius: .25rem;
   text-align: center;
 }
+
 
 body {
   background-attachment: fixed;

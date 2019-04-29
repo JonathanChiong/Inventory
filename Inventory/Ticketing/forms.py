@@ -99,19 +99,11 @@ class TicketForm(forms.ModelForm):
             'mb_tran': forms.Select(attrs={
             'class': 'form-control'
             }),
-            # 'mb_war': forms.TextInput(attrs={
-            # 'class': 'form-control',
-            # 'placeholder': 'MM-DD-YY'
-            # }),
             'pr_stat': forms.Select(attrs={
             'class': 'form-control'
             }),
             'pr_tran': forms.Select(attrs={
             'class': 'form-control'
-            }),
-            'pr_war': forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'MM-DD-YY'
             }),
             'mm_stat': forms.Select(attrs={
             'class': 'form-control'
@@ -119,9 +111,4 @@ class TicketForm(forms.ModelForm):
             'mm_tran': forms.Select(attrs={
             'class': 'form-control'
             }),
-            'mm_war': forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'MM-DD-YY'
-            }),
-
             }
