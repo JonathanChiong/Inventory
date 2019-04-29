@@ -241,4 +241,11 @@
 
 
   {% block js  %}
+  <script>
+  $(function () {
+    $("#id_mb_war").datepicker({
+      format:'mm/dd/yy',
+    });
+  });
+  </script>
   {% endblock %}

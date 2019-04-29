@@ -20,12 +20,18 @@
     {% block content %}
     {% endblock %}
 
-  <script src="{% static "jquery/jquery-3.3.1.min.js" %}"></script>
-  <script src="{% static "popper/popper.min.js" %}"></script>
-  <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+
+    <script src='{% static "jquery/jquery-3.3.1.min.js" %}'></script>
+    <script src='{% static "popper/popper.min.js" %}'> </script>
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static "DatePicker/datepicker-1.0.7/dist/datepicker.min.css" %}">
+    <script src='{% static "DatePicker/datepicker-1.0.7/dist/datepicker.min.js" %}'></script>
+
 
   {% block js %}
   {% endblock %}
-
   </body>
 </html>

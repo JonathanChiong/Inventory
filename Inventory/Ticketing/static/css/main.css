@@ -1,3 +1,14 @@
+
+/* migrate fields width from ticket detail to main.css*/
+/* migrate fields width from ticket detail to main.css*/
+
+#id_mb_war{
+  height: 80%;
+  width:100%;
+  border-radius: .25rem;
+  text-align: center;
+}
+
 body {
   background-attachment: fixed;
   height:100%;
@@ -76,7 +87,7 @@ body {
   line-height: 50px;
   height: 50px;
   overflow: hidden;
-  padding-top: 5px;
+  padding-right: 5px;
 }
 
 #tableerror {
@@ -96,7 +107,17 @@ body {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
+  margin-bottom: 0;
+}
 
+#tablerow select {
+  padding-top: 0;
+  margin-top: 5px;
+}
+
+#tablerow input {
+  padding-top: 0;
+  margin-top: 5px;
 }
 
 
