@@ -75,7 +75,7 @@ C_TRANSACTION = (
 )
 
 class Transaction(models.Model):
-    id_comp = models.CharField(max_length=30,null=True,blank=True)
+    id_comp = models.CharField(max_length=30)
     nm_dept = models.CharField(max_length=50,choices=DEPARTMENT,null=True,blank=True)
     nm_loc = models.CharField(max_length=50,choices=C_LOC,null=True,blank=True)
     nm_supp = models.CharField(max_length=50,choices=SUPPLIER,null=True,blank=True)

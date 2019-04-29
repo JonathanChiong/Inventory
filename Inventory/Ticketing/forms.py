@@ -92,7 +92,6 @@ class TicketForm(forms.ModelForm):
                 'pr_war',
                 'mm_war',
         ]
-
         widgets = {
             'mb_stat': forms.Select(attrs={
             'class': 'form-control'

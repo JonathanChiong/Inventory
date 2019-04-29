@@ -146,6 +146,12 @@
           {{form.mb_war}}
         </div>
       </div>
+      {% if form.mb_war.errors %}
+      <div id='tableerror'>
+        {{form.mb_war.errors  | striptags }} <i class="fas fa-exclamation-circle"></i>
+      </div>
+      {% endif %}
+
       {% endif %}
 
       {% if ticket.transac.pr_brand != None  %}
@@ -176,6 +182,11 @@
           {{form.pr_war}}
         </div>
       </div>
+      {% if form.pr_war.errors %}
+      <div id='tableerror'>
+        {{form.pr_war.errors  | striptags }} <i class="fas fa-exclamation-circle"></i>
+      </div>
+      {% endif %}
       {% endif %}
 
       {% if ticket.transac.mm_brand != None  %}
@@ -206,6 +217,11 @@
           {{form.mm_war}}
         </div>
       </div>
+      {% if form.mm_war.errors %}
+      <div id='tableerror'>
+        {{form.mm_war.errors  | striptags }} <i class="fas fa-exclamation-circle"></i>
+      </div>
+      {% endif %}
       {% endif %}
 
     </div>
